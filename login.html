@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Login and Register Form</title>
+      <link rel="stylesheet" href="login.css">
+      
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   </head>
+   <body>
+      <div class="wrapper">
+         <div class="title-text">
+            <div class="title login">
+               Login 
+            </div>
+            <div class="title signup">
+               Signup 
+            </div>
+         </div>
+         <div class="form-container">
+            <div class="slide-controls">
+               <input type="radio" name="slide" id="login" checked>
+               <input type="radio" name="slide" id="signup">
+               <label for="login" class="slide login">Login</label>
+               <label for="signup" class="slide signup">Signup</label>
+               <div class="slider-tab"></div>
+            </div>
+            <div class="form-inner">
+               <form action="#" class="login">
+                  <div class="field">
+                     <input type="text" placeholder="Email Address" id="email" required>
+                  </div>
+                  <div class="field">
+                     <input type="password" placeholder="Password" id="password" required>
+                  </div>
+                  <div class="pass-link">
+                     <a href="#">Forgot password?</a>
+                  </div>
+                  <div class="field btn">
+                     <div class="btn-layer"></div>
+                     <input type="submit" value="Login" onclick="signInHandler();">
+                  </div>
+                  <div class="signup-link">
+                     Not a member? <a href="">Signup now</a>
+                  </div>
+               </form>
+               <form action="#" class="signup">
+                  <div class="field">
+                     <input type="text" placeholder="First Name" id="fName" required>
+                     
+                  </div>
+                  <div class="field">
+                     <input type="text" placeholder="Last Name" id="lName" required>
+                  </div>
+                  <div class="field">
+                     <input type="text" placeholder="Email Address" id="signupEmail" required>
+                  </div>
+                  <div class="field">
+                     <input type="password" placeholder="Password" id="signupPassword" required>
+                  </div>
+                  <div class="field btn">
+                     <div class="btn-layer"></div>
+                     <input type="submit" value="Signup" onclick="signUpHandler();">
+                     <div id="outputDiv"></div>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+
+      <script>
+         const loginText = document.querySelector(".title-text .login");
+         const loginForm = document.querySelector("form.login");
+         const loginBtn = document.querySelector("label.login");
+         const signupBtn = document.querySelector("label.signup");
+         const signupLink = document.querySelector("form .signup-link a");
+         signupBtn.onclick = (()=>{
+           loginForm.style.marginLeft = "-50%";
+           loginText.style.marginLeft = "-50%";
+         });
+         loginBtn.onclick = (()=>{
+           loginForm.style.marginLeft = "0%";
+           loginText.style.marginLeft = "0%";
+         });
+         console.log(signupBtn)
+         signupLink.onclick = (()=>{
+         //   signupBtn.click();
+         console.log(123);
+         // authRegister()
+         //   return false;
+         });
+
+         function signUpHandler(e){
+            console.log(123);
+            authRegister(e);
+            return false;
+         }
+
+         function signInHandler(e){
+            console.log(321);
+            authLogin(e);
+            return false;
+         }
+         
+      </script>
+
+<!-- <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script> -->
+<!-- <script src="https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.8.1/firebase-auth.js"></script> -->
+<script type="module">
+   import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js'
+
+   // import { auth } from 'https://www.gstatic.com/firebasejs/9.8.3/firebase-auth.js'
+   import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.8.3/firebase-auth.js'
+
+   var firebaseConfig = {
+  apiKey: "AIzaSyAQYbPMq8zhq-EHBSoco1WYMFZzaSDaXIg",
+  authDomain: "artshowcase2022.firebaseapp.com",
+  databaseURL: "https://artshowcase2022-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "artshowcase2022",
+  storageBucket: "artshowcase2022.appspot.com",
+  messagingSenderId: "456912519082",
+  appId: "1:456912519082:web:4dbab655f27bafb4b075d3"
+};
+console.log(`cwp:${createUserWithEmailAndPassword, signInWithEmailAndPassword}`)
+const app = initializeApp(firebaseConfig);
+window.firebaseAuth = {auth:getAuth(app), createUserWithEmailAndPassword, signInWithEmailAndPassword};
+
+
+ </script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script src="./login.js"></script>
+
+   </body>
+</html>
